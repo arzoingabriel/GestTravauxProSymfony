@@ -1,0 +1,46 @@
+# =======================================
+# Symfony standard
+# =======================================
+/var/
+/vendor/
+/public/bundles/
+/public/assets/
+/assets/vendor/
+
+# Symfony secrets
+/config/secrets/prod/prod.decrypt.private.php
+
+# Local env files
+/.env.local
+/.env.local.php
+/.env.*.local
+
+# =======================================
+# PHPUnit
+# =======================================
+/.phpunit.cache/
+/phpunit.xml
+
+# =======================================
+# PhpStorm / JetBrains
+# =======================================
+/.idea/
+/*.iml
+
+# =======================================
+# MacOS
+# =======================================
+.DS_Store
+
+# =======================================
+# Node / Front
+# =======================================
+/node_modules/
+/package-lock.json
+/yarn.lock
+
+# =======================================
+# Logs / Cache / Temp
+# =======================================
+*.log
+*.cache
