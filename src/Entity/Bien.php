@@ -25,6 +25,12 @@ class Bien
     #[ORM\OneToMany(targetEntity: Chantier::class, mappedBy: 'Bien')]
     private Collection $chantiers;
 
+    #[ORM\Column(length: 255)]
+    private ?string $adresseBien = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $villeBien = null;
+
     public function __construct()
     {
         $this->chantiers = new ArrayCollection();
@@ -73,6 +79,30 @@ class Bien
                 $chantier->setBien(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getAdresseBien(): ?string
+    {
+        return $this->adresseBien;
+    }
+
+    public function setAdresseBien(string $adresseBien): static
+    {
+        $this->adresseBien = $adresseBien;
+
+        return $this;
+    }
+
+    public function getVilleBien(): ?string
+    {
+        return $this->villeBien;
+    }
+
+    public function setVilleBien(string $villeBien): static
+    {
+        $this->villeBien = $villeBien;
 
         return $this;
     }

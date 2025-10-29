@@ -21,6 +21,12 @@ class Devis
     #[ORM\ManyToMany(targetEntity: Prestation::class, mappedBy: 'Devis')]
     private Collection $prestations;
 
+    #[ORM\Column]
+    private ?int $prix = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $duree = null;
+
     public function __construct()
     {
         $this->prestations = new ArrayCollection();
@@ -54,6 +60,30 @@ class Devis
         if ($this->prestations->removeElement($prestation)) {
             $prestation->removeDevi($this);
         }
+
+        return $this;
+    }
+
+    public function getPrix(): ?int
+    {
+        return $this->prix;
+    }
+
+    public function setPrix(int $prix): static
+    {
+        $this->prix = $prix;
+
+        return $this;
+    }
+
+    public function getDuree(): ?string
+    {
+        return $this->duree;
+    }
+
+    public function setDuree(string $duree): static
+    {
+        $this->duree = $duree;
 
         return $this;
     }

@@ -35,6 +35,18 @@ class Chantier
     #[ORM\OneToMany(targetEntity: DevisType::class, mappedBy: 'Chantier')]
     private Collection $devisTypes;
 
+    #[ORM\Column(length: 255)]
+    private ?string $villeBien = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $adresseBien = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $infoChantier = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $statutChantier = null;
+
     public function __construct()
     {
         $this->photos = new ArrayCollection();
@@ -126,6 +138,54 @@ class Chantier
                 $devisType->setChantier(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getVilleBien(): ?string
+    {
+        return $this->villeBien;
+    }
+
+    public function setVilleBien(string $villeBien): static
+    {
+        $this->villeBien = $villeBien;
+
+        return $this;
+    }
+
+    public function getAdresseBien(): ?string
+    {
+        return $this->adresseBien;
+    }
+
+    public function setAdresseBien(string $adresseBien): static
+    {
+        $this->adresseBien = $adresseBien;
+
+        return $this;
+    }
+
+    public function getInfoChantier(): ?string
+    {
+        return $this->infoChantier;
+    }
+
+    public function setInfoChantier(string $infoChantier): static
+    {
+        $this->infoChantier = $infoChantier;
+
+        return $this;
+    }
+
+    public function getStatutChantier(): ?string
+    {
+        return $this->statutChantier;
+    }
+
+    public function setStatutChantier(string $statutChantier): static
+    {
+        $this->statutChantier = $statutChantier;
 
         return $this;
     }

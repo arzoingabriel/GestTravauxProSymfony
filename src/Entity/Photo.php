@@ -17,6 +17,9 @@ class Photo
     #[ORM\JoinColumn(nullable: false)]
     private ?Chantier $Chantier = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $idPhoto = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -30,6 +33,18 @@ class Photo
     public function setChantier(?Chantier $Chantier): static
     {
         $this->Chantier = $Chantier;
+
+        return $this;
+    }
+
+    public function getIdPhoto(): ?string
+    {
+        return $this->idPhoto;
+    }
+
+    public function setIdPhoto(string $idPhoto): static
+    {
+        $this->idPhoto = $idPhoto;
 
         return $this;
     }
