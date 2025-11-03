@@ -35,6 +35,21 @@ class Chantier
     #[ORM\OneToMany(targetEntity: DevisType::class, mappedBy: 'Chantier')]
     private Collection $devisTypes;
 
+    #[ORM\Column(length: 255)]
+    private ?string $villeChantier = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $adresseChantier = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $cpChantier = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $infoChantier = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $statutChantier = null;
+
     public function __construct()
     {
         $this->photos = new ArrayCollection();
@@ -126,6 +141,66 @@ class Chantier
                 $devisType->setChantier(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getVilleChantier(): ?string
+    {
+        return $this->villeChantier;
+    }
+
+    public function setVilleChantier(string $villeChantier): static
+    {
+        $this->villeChantier = $villeChantier;
+
+        return $this;
+    }
+
+    public function getAdresseChantier(): ?string
+    {
+        return $this->adresseChantier;
+    }
+
+    public function setAdresseChantier(string $adresseChantier): static
+    {
+        $this->adresseChantier = $adresseChantier;
+
+        return $this;
+    }
+
+    public function getCpChantier(): ?string
+    {
+        return $this->cpChantier;
+    }
+
+    public function setCpChantier(string $cpChantier): static
+    {
+        $this->cpChantier = $cpChantier;
+
+        return $this;
+    }
+
+    public function getInfoChantier(): ?string
+    {
+        return $this->infoChantier;
+    }
+
+    public function setInfoChantier(string $infoChantier): static
+    {
+        $this->infoChantier = $infoChantier;
+
+        return $this;
+    }
+
+    public function getStatutChantier(): ?string
+    {
+        return $this->statutChantier;
+    }
+
+    public function setStatutChantier(string $statutChantier): static
+    {
+        $this->statutChantier = $statutChantier;
 
         return $this;
     }

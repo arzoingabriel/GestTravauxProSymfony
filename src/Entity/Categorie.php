@@ -27,6 +27,12 @@ class Categorie
     #[ORM\OneToMany(targetEntity: Prestation::class, mappedBy: 'Categorie')]
     private Collection $prestations;
 
+    #[ORM\Column(length: 255)]
+    private ?string $type = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $libelle = null;
+
     public function __construct()
     {
         $this->entrepreneurs = new ArrayCollection();
@@ -91,6 +97,30 @@ class Categorie
                 $prestation->setCategorie(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getType(): ?string
+    {
+        return $this->type;
+    }
+
+    public function setType(string $type): static
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    public function getLibelle(): ?string
+    {
+        return $this->libelle;
+    }
+
+    public function setLibelle(?string $libelle): static
+    {
+        $this->libelle = $libelle;
 
         return $this;
     }

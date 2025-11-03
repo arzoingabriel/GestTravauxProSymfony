@@ -21,6 +21,18 @@ class Gestionnaire
     #[ORM\OneToMany(targetEntity: DevisType::class, mappedBy: 'Gestionnaire')]
     private Collection $devisTypes;
 
+    #[ORM\Column(length: 255)]
+    private ?string $nomGestionnaire = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $prenomGestionnaire = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $emailGestionnaire = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $telGestionnaire = null;
+
     public function __construct()
     {
         $this->devisTypes = new ArrayCollection();
@@ -57,6 +69,54 @@ class Gestionnaire
                 $devisType->setGestionnaire(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getNomGestionnaire(): ?string
+    {
+        return $this->nomGestionnaire;
+    }
+
+    public function setNomGestionnaire(string $nomGestionnaire): static
+    {
+        $this->nomGestionnaire = $nomGestionnaire;
+
+        return $this;
+    }
+
+    public function getPrenomGestionnaire(): ?string
+    {
+        return $this->prenomGestionnaire;
+    }
+
+    public function setPrenomGestionnaire(string $prenomGestionnaire): static
+    {
+        $this->prenomGestionnaire = $prenomGestionnaire;
+
+        return $this;
+    }
+
+    public function getEmailGestionnaire(): ?string
+    {
+        return $this->emailGestionnaire;
+    }
+
+    public function setEmailGestionnaire(string $emailGestionnaire): static
+    {
+        $this->emailGestionnaire = $emailGestionnaire;
+
+        return $this;
+    }
+
+    public function getTelGestionnaire(): ?string
+    {
+        return $this->telGestionnaire;
+    }
+
+    public function setTelGestionnaire(string $telGestionnaire): static
+    {
+        $this->telGestionnaire = $telGestionnaire;
 
         return $this;
     }

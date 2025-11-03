@@ -29,6 +29,12 @@ class DevisType
     #[ORM\JoinColumn(nullable: false)]
     private ?Gestionnaire $Gestionnaire = null;
 
+    #[ORM\Column]
+    private ?int $prix = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $duree = null;
+
     public function __construct()
     {
         $this->Prestation = new ArrayCollection();
@@ -83,6 +89,30 @@ class DevisType
     public function setGestionnaire(?Gestionnaire $Gestionnaire): static
     {
         $this->Gestionnaire = $Gestionnaire;
+
+        return $this;
+    }
+
+    public function getPrix(): ?int
+    {
+        return $this->prix;
+    }
+
+    public function setPrix(int $prix): static
+    {
+        $this->prix = $prix;
+
+        return $this;
+    }
+
+    public function getDuree(): ?string
+    {
+        return $this->duree;
+    }
+
+    public function setDuree(string $duree): static
+    {
+        $this->duree = $duree;
 
         return $this;
     }

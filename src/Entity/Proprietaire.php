@@ -21,6 +21,18 @@ class Proprietaire
     #[ORM\OneToMany(targetEntity: Bien::class, mappedBy: 'Proprietaire')]
     private Collection $biens;
 
+    #[ORM\Column(length: 255)]
+    private ?string $nomPorprietaire = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $prenomProprietaire = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $emailProprietaire = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $telProprietaire = null;
+
     public function __construct()
     {
         $this->biens = new ArrayCollection();
@@ -57,6 +69,54 @@ class Proprietaire
                 $bien->setProprietaire(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getNomPorprietaire(): ?string
+    {
+        return $this->nomPorprietaire;
+    }
+
+    public function setNomPorprietaire(string $nomPorprietaire): static
+    {
+        $this->nomPorprietaire = $nomPorprietaire;
+
+        return $this;
+    }
+
+    public function getPrenomProprietaire(): ?string
+    {
+        return $this->prenomProprietaire;
+    }
+
+    public function setPrenomProprietaire(string $prenomProprietaire): static
+    {
+        $this->prenomProprietaire = $prenomProprietaire;
+
+        return $this;
+    }
+
+    public function getEmailProprietaire(): ?string
+    {
+        return $this->emailProprietaire;
+    }
+
+    public function setEmailProprietaire(string $emailProprietaire): static
+    {
+        $this->emailProprietaire = $emailProprietaire;
+
+        return $this;
+    }
+
+    public function getTelProprietaire(): ?string
+    {
+        return $this->telProprietaire;
+    }
+
+    public function setTelProprietaire(string $telProprietaire): static
+    {
+        $this->telProprietaire = $telProprietaire;
 
         return $this;
     }
